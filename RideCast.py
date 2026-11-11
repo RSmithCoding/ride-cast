@@ -11,8 +11,8 @@ print("Available Bike Parks:\n")
 
 bikeparks = {
     "Glentress": (55.6467,-3.1395),
-    "Hamsterley Forrest": (54.672, -1.856),
-    "Ae Forrest": (55.2333, -3.5833),
+    "Hamsterley Forest": (54.672, -1.856),
+    "Ae Forest": (55.2333, -3.5833),
     "Fort William": (56.8372, -5.0617),
     "Bike Park Wales": (51.718074, -3.361611),
     "Revolution Bike Park": (52.820472, -3.410595),
@@ -21,8 +21,8 @@ bikeparks = {
 
 menu = {
     "1": "Glentress",
-    "2": "Hamsterley Forrest",
-    "3": "Ae Forrest",
+    "2": "Hamsterley Forest",
+    "3": "Ae Forest",
     "4": "Fort William",
     "5": "Bike Park Wales",
     "6": "Revolution Bike Park",
@@ -33,18 +33,35 @@ for key in menu:
     
     print(key, menu[key], sep='\t')
 
+while True:
+    
+    choice = input("\n\nSelect first bike park to compare: ")
+    if choice in menu:
+        selection = menu.get(choice)
+        check = selection
+        break
+    else:
+        print("Please enter a choice from 1 to 7..")
+        
+while True:
 
-choice = input("\n\nSelect first bike park to compare: ")
-selection = menu.get(choice)
-check = selection
+    choice2 = input("\nSelect second bike park to compare: ")
+    if choice2 in menu:
+        selection2 = menu.get(choice2)
+        check2 = selection2
+        break
+    else:
+        print("Please enter a choice from 1 to 7..")
 
-choice2 = input("\nSelect second bike park to compare: ")
-selection2 = menu.get(choice2)
-check2 = selection2
+while True:
 
-choice3 = input("\nSelect third bike park to compare: ")
-selection3 = menu.get(choice3)
-check3 = selection3
+    choice3 = input("\nSelect third bike park to compare: ")
+    if choice3 in menu:
+        selection3 = menu.get(choice3)
+        check3 = selection3
+        break
+    else:
+        print("Please enter a choice from 1 to 7..")
 
 result = bikeparks.get(check)
 result2 = bikeparks.get(check2)
@@ -175,12 +192,11 @@ def getweather(lat,long,check):
     print(f"Current Weather Data for {bikepark}\n")
 
     print(f"Temperature: {current['temperature_2m']} {units['temperature_2m']}\t"
-        f"Percipitation: {current['precipitation']} {units['precipitation']}\t" 
+        f"Precipitation: {current['precipitation']} {units['precipitation']}\t" 
         f"Sunrise: {daily['sunrise'][0][-5:]}\tSunset: {daily['sunset'][0][-5:]}\t"
         f"{matchingdata}\t{matchingsymbol}\n")
 
     print(f"Wind Speed: {current['wind_speed_10m']} {units['wind_speed_10m']}\t"
-#        f"Wind Direction: {current['wind_direction_10m']} {units['wind_direction_10m']}\t"
         f"Wind Direction: {winddirection[index]}\t"
         f"Wind Gust Speed: {current['wind_gusts_10m']} {units['wind_gusts_10m']}\n")
 
@@ -193,8 +209,6 @@ def getweather(lat,long,check):
     hourlysymbolseperated = "\t\t".join(item for item in hourlymatchingsymbol)
     print(f"{hourlysymbolseperated}")
     
-#    hourlydataseperated = "\t".join(item for item in hourlymatchingdata)
-#    print(f"{hourlydataseperated}")
 
 
 getweather(**{"lat": lat, "long": long, "check": check})
