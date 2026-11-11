@@ -26,4 +26,40 @@ I built it up in stages, adding one idea at a time:
 2. **Current conditions.** I picked out the useful values and displayed the current weather for that location.
 3. **More bike parks.** I stored the coordinates of several bike parks in a dictionary and showed three locations on the same screen to compare.
 4. **Weather descriptions.** I noticed the API returns a weather code, so I created a dictionary that matches each code to a description.
-5. **Weather emojis.** I added a second
+5. **Weather emojis.** I added a second dictionary that matches each code to an emoji, to make conditions easy to read at a glance.
+6. **Wind direction.** The API gives wind direction in degrees, so I converted it into a compass direction that's easier to understand.
+7. **Hourly forecast.** Finally, I requested hourly data and displayed the forecast for the hours ahead.
+
+## Built with
+
+- Python 3
+- [requests](https://pypi.org/project/requests/) for calling the API
+- [Open-Meteo API](https://open-meteo.com/) for weather data (free, no API key needed)
+
+## Running it
+
+You need Python 3 and the requests package:
+
+```
+pip3 install requests
+python3 RideCast.py
+```
+
+Choose three bike parks by typing their numbers from the list.
+
+## Project status
+
+This version is complete. The console layout is full with three parks and the hourly forecast, so I'm not planning to add more to it. The next step would be a mobile app version, which would be more practical for checking conditions on the go.
+
+## What I learned
+
+- Calling a REST API with `requests`, passing parameters and handling the JSON response
+- Using dictionaries to look up coordinates, weather descriptions and emojis
+- Converting wind direction from degrees to compass points with rounding and the `%` operator
+- Writing a function that can be reused for each location
+- Formatting a dashboard-style layout in the terminal
+
+## Ideas for improvement
+
+- A mobile app version
+- Let the user choose how many parks to compare
