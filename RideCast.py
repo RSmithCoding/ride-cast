@@ -6,7 +6,7 @@ def clear():
 
 clear()
 
-print("Welcome to Ride Cast\n")
+print("Welcome to Ride Cast!\n")
 print("Available Bike Parks:\n")
 
 bikeparks = {
